@@ -1,0 +1,32 @@
+id = "andree37.intercom"
+name = "intercom"
+version = "0.1.0"
+min_herdr_version = "0.9.0"
+description = "See every agent session and every message between them, and message any of them"
+platforms = ["linux", "macos"]
+
+# Over everything, like a picker: open, read, send, close.
+[[panes]]
+id = "popup"
+title = "Intercom"
+placement = "popup"
+width = "85%"
+height = "85%"
+command = ["sh", "-c", "exec sh \"$HERDR_PLUGIN_ROOT/pane.sh\""]
+
+# Or kept open beside your agents.
+[[panes]]
+id = "side"
+title = "Intercom"
+placement = "split"
+command = ["sh", "-c", "exec sh \"$HERDR_PLUGIN_ROOT/pane.sh\""]
+
+[[actions]]
+id = "open"
+title = "Intercom"
+command = ["sh", "open.sh", "popup"]
+
+[[actions]]
+id = "open-side"
+title = "Intercom beside this pane"
+command = ["sh", "open.sh", "side"]
